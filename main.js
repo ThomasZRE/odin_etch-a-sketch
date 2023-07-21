@@ -12,6 +12,5 @@ let arr = Array.from(divArray);
 arr.shift();
 
 arr.forEach(dv => dv.innerText = "\n\n");
-arr.forEach(dv => dv.addEventListener("mouseover", function(n) {
-    n.
-}));
+arr.forEach(dv => dv.addEventListener("mouseover", () => dv.style.color = "red"));
+
