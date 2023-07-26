@@ -1,7 +1,13 @@
 const container = document.querySelector(".container");
 let div = document.createElement("div");
 
-for (let i = 0; i < 16**2; i++) {
+let squares = parseInt(prompt("Squares per side: "));
+
+if (squares > 30) {
+    squares = 16
+}
+
+for (let i = 0; i < squares**2; i++) {
     container.appendChild(document.createElement("div"));
 }
 
@@ -12,5 +18,5 @@ let arr = Array.from(divArray);
 arr.shift();
 
 arr.forEach(dv => dv.innerText = "\n\n");
-arr.forEach(dv => dv.addEventListener("mouseover", () => dv.style.color = "red"));
+arr.forEach(dv => dv.addEventListener("mouseover", () => dv.style.background = "red"));
 
