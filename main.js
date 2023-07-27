@@ -7,7 +7,7 @@ const input = document.createElement("input");
 const submit = document.createElement("button");
 
 // input data
-input.alt = "16";
+input.defaultValue = "30 Max";
 
 // submit data
 submit.type = "submit";
@@ -50,8 +50,7 @@ const make_grid = () => {
 }
 
 submit.addEventListener("click", () => {
-    for (let i = 0; i < container.childElementCount - 2; i++) container.remove(container.lastChild);
-    console.log(container.childElementCount);
+    while (container.childElementCount) {container.removeChild(container.lastChild)};
     info = input.value;
     make_grid();
 })
