@@ -16,34 +16,42 @@ submit.classList.add("submit");
 
 button.append(input, submit);
 
-
-
 /* Grid logic */
 const container = document.querySelector(".container");
 let div = document.createElement("div");
 let squares = 16
-let info = input.value
-if (info) squares = input;
+let info;
 
-if (squares > 30) {
-    squares = 16
+const make_grid = () => {
+    if (info) squares = info;
+
+    if (squares > 30) {
+        squares = 16
+    }
+
+    for (let i = 0; i < squares**2; i++) {
+        container.appendChild(document.createElement("div"));
+    }
+
+    const divArray = document.querySelectorAll("div");
+
+    let arr = Array.from(divArray);
+
+    arr.shift();
+    arr.shift();
+
+    arr.forEach(dv => {
+        let value = ((100 / squares) - ( (100 / squares) / 100 ) ) - 0.2;
+        document.documentElement.style.setProperty(`--valor`, `${value}%`);
+    });
+
+    arr.forEach(dv => dv.innerText = "\n");
+    arr.forEach(dv => dv.addEventListener("mouseover", () => dv.style.background = "red"));
 }
 
-for (let i = 0; i < squares**2; i++) {
-    container.appendChild(document.createElement("div"));
-}
-
-const divArray = document.querySelectorAll("div");
-
-let arr = Array.from(divArray);
-
-arr.shift();
-arr.shift();
-
-arr.forEach(dv => {
-    let value = ((100 / squares) - ( (100 / squares) / 100 ) ) - 0.2;
-    document.documentElement.style.setProperty(`--valor`, `${value}%`);
-});
-
-arr.forEach(dv => dv.innerText = "\n");
-arr.forEach(dv => dv.addEventListener("mouseover", () => dv.style.background = "red"));
+submit.addEventListener("click", () => {
+    for (let i = 0; i < container.childElementCount - 2; i++) container.remove(container.lastChild);
+    console.log(container.childElementCount);
+    info = input.value;
+    make_grid();
+})
