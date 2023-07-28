@@ -4,10 +4,12 @@
 }
 
 body {
+    font-family: sans-serif;
+    color: white;
     display: flex;
     flex-direction: column;
     padding-top: 1%;
-    background-color: pink;
+    background-color: black;
     justify-content: center;
     align-content: center;
 }
@@ -27,12 +29,12 @@ body {
 .container {
     display: flex;
     flex-wrap: wrap;
-    border: 1px solid black;
+    border: 1px solid rgb(17, 15, 15);
     flex-basis: 70%;
 }   
 
 .container div {
-    border: 1px solid red;
+    border: 1px solid rgb(192, 192, 183);
     flex-grow: 1;
     flex-basis: var(--valor);
 }

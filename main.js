@@ -46,7 +46,7 @@ const make_grid = () => {
     });
 
     arr.forEach(dv => dv.innerText = "\n");
-    arr.forEach(dv => dv.addEventListener("mouseover", () => dv.style.background = "red"));
+    arr.forEach(dv => dv.addEventListener("mouseover", () => dv.style.background = "white"));
 }
 
 submit.addEventListener("click", () => {
